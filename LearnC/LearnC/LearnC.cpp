@@ -5,6 +5,8 @@
 #include <stdlib.h>
 void isEven(int *p1); //Even/odd number check
 void arrayPrint(int p1); //Print values of Array
+void pointerSample(); //Prints some pointer testing.
+void printRamp(); //prints a ramp.
 
 
 
@@ -17,6 +19,10 @@ int main()
 
 
 	arrayPrint(n);
+
+	pointerSample();
+
+	printRamp();
 
 	getchar();
     return 0;
@@ -42,5 +48,43 @@ void arrayPrint(int p1) {
 
 	} // for end
 
+	printf("\n");
+
 } // arrayPrint() end
+
+void pointerSample() {
+	int yy = 10;
+	int *a = &yy;
+	int xx = yy;
+	printf("valor yy: %d, valor pointer *a: %d\n", yy, *a);
+	printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
+
+	*a += 8;
+
+	printf("valor yy: %d, valor pointer *a: %d\n", yy, *a);
+	printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
+} // pointerSample() end
+
+void printRamp() {
+	int xx = 10;
+	int yy = 10;
+	int zz = 0;
+
+	for (int i = 0; i < yy; i++) {
+		for (int i = 0; i < xx; i++) {
+			printf("-");
+			
+		} // for xx end
+		xx -= 1;
+		//printf("\n");
+
+		for (int i = 0; i < zz; i++) {
+			printf("*");
+		} // for zz end
+		zz += 1;
+		printf("\n");
+	} // for yy end
+
+
+} // printRamp() end
 
