@@ -38,15 +38,29 @@ void isEven(int *p1) {
 } // isEven() end
 
 void arrayPrint(int p1) {
+  //asumimos que p1 contiene un entero con el tamaÃ±o del arreglo
+	int *arr; // arr es un apuntador a entero
 	
-	int arr[20]; // Averiguar como hacer para definir el tamaño dinamicamente. !!!!!!!!!!!!
-	printf("You have a %d element array, and this are the elements values:\n", p1);
+	arr = (int*)malloc(sizeof(int) * p1);
+	//queremos un arreglo de p1 enteros
+	//si el sistema ha concedido la memoria
+	//arr contendra la direccion del inicio de esa memoria
+	if (arr != NULL){
+	  printf("You have a %d element array, and this are the elements values:\n", p1);
 
-	for (int i = 0; i < p1; i++) {
-		arr[i] = i;
-		printf("%d", arr[i]);
+	  for (int i = 0; i < p1; i++) {
+	    arr[i] = i;
+	    printf("%d", arr[i]);
+	  } // for end
 
-	} // for end
+	  //ya acabamos de jugar con el segmento de memoria
+	  //uno de tantos Ãhabitos para disinguirnos de
+	  //las bestias es liberar la memoria que pedimos 
+	  free(arr);
+	}//final de if arr not null
+	else{ //el sistema no concedio la memoria, ya valio
+	  printf ("no hay memoria suficiente para %d elementos\n", p1);
+	}//fin del else donde no obtuvimos la memoria
 
 	printf("\n");
 
