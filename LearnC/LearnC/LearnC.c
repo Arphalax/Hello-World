@@ -4,11 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
+#include <math.h>
 void isEven(int *p1); //Even/odd number check
 void arrayPrint(int p1); //Print values of Array
 void pointerSample(); //Prints some pointer testing.
 void printRamp(); //prints a ramp.
 void typeSize();
+void findPrimes();
 
 
 
@@ -19,13 +21,18 @@ int main(int argc, char *argv[])
 	int n = 10;
 	//isEven(&x);
 
-	typeSize();
+	//typeSize();
 
 	//arrayPrint(n);
 
 	//pointerSample();
 
 	//printRamp();
+	int xx;
+	printf("Enter a number: ");
+	scanf_s("%d", &xx);
+
+	findPrimes(xx);
 
 
 
@@ -76,12 +83,12 @@ void pointerSample() {
 	int *a = &yy;
 	int xx = yy;
 	printf("valor yy: %d, valor pointer *a: %d\n", yy, *a);
-	printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
+printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
 
-	*a += 8;
+*a += 8;
 
-	printf("valor yy: %d, valor pointer *a: %d\n", yy, *a);
-	printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
+printf("valor yy: %d, valor pointer *a: %d\n", yy, *a);
+printf("valor xx: %d, valor pointer *a: %d\n\n", xx, *a);
 } // pointerSample() end
 
 void printRamp() {
@@ -146,3 +153,29 @@ void typeSize() {
 
 
 }
+
+
+void findPrimes(int p1) {
+
+	int lock = 0; //candado o puerta para saber si imprimir o no el numero que se esta validando. 
+	int number = 2; //es el numero a validar, inicia en 2 porque es el primer numero primo. 
+
+	for (number = 2; number <= p1; number++) { //inicia el conteo de numeros a checar
+		lock = 0; //abre el candado
+		for (int i = 2; i <= sqrt(number); i++) { //cehca el numero a validar con cada numero menor a la raiz cuadrada del numero a validar (the Sieve of Eratosthenes)
+			if (number % i == 0) { //checa si el numero es divisible 
+				lock++; // cierra el candado si el numero es divisible 
+				break; //rompe el loop cuando un numero es divisible
+			}
+		}// for end
+
+		if (lock == 0) { //si el numero fue divisible el candado va a estar cerrado y este statement es falso. 
+			printf("%d ", number); // imprime el numero que se esta validando solo si el candado esta abierto.
+		}
+
+	}// for end
+
+	getchar();
+} // findPrimes() end
+
+
