@@ -5,12 +5,14 @@
 #include <stdlib.h>
 #include <float.h>
 #include <math.h>
+
 void isEven(int *p1); //Even/odd number check
 void arrayPrint(int p1); //Print values of Array
 void pointerSample(); //Prints some pointer testing.
 void printRamp(); //prints a ramp.
 void typeSize();
 void findPrimes();
+void findMyNumber();
 
 
 
@@ -28,13 +30,13 @@ int main(int argc, char *argv[])
 	//pointerSample();
 
 	//printRamp();
-	int xx;
-	printf("Enter a number: ");
-	scanf_s("%d", &xx);
+	//int xx;
+	//printf("Enter a number: ");
+	//scanf_s("%d", &xx);
 
-	findPrimes(xx);
+	//findPrimes(xx);
 
-
+	findMyNumber();
 
 	getchar();
 	return 0;
@@ -177,5 +179,45 @@ void findPrimes(int p1) {
 
 	getchar();
 } // findPrimes() end
+
+void findMyNumber() {
+	int numero;
+	int correcto = 0;
+	int guess;
+	int respuesta;
+
+	printf("Escribe un numero del 1 al 100: ");
+	scanf_s("%d", &numero);
+	guess = (rand() % 100) + 1;
+
+	do {
+		
+
+		if (guess != numero) {
+			printf("Mi intento es :%d, tu numero es mayor o menor? (1 = menor, 2 = mayor): ", guess);
+			scanf_s("%d", &respuesta);
+		} // if end
+
+		if (respuesta == 1) {
+			guess = (rand() % guess) + 1;
+		}
+		else if (respuesta == 2) {
+			guess = (rand() % ((numero + 1) - guess) + guess);
+		}
+		else {
+			printf("Aprende a leer.\n");
+		}
+
+		if (guess == numero) {
+			correcto = 1;
+		}
+
+	} while (correcto == 0);
+
+	printf("Tu numero es: %d", guess);
+	getchar();
+
+
+}
 
 
