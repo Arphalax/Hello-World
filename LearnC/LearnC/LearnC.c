@@ -12,7 +12,8 @@ void pointerSample(); //Prints some pointer testing.
 void printRamp(); //prints a ramp.
 void typeSize();
 void findPrimes();
-void findMyNumber();
+void findMyNumber(); // Tiene algunos problemas, no importa la pista que le des, eventualmente encuentra el numero. 
+void structsTest();
 
 
 
@@ -36,7 +37,8 @@ int main(int argc, char *argv[])
 
 	//findPrimes(xx);
 
-	findMyNumber();
+	//findMyNumber();
+	structsTest();
 
 	getchar();
 	return 0;
@@ -99,14 +101,14 @@ void printRamp() {
 	int zz = 0;
 
 	for (int i = 0; i < yy; i++) {
-		for (int i = 0; i < xx; i++) {
+		for (int j = 0; j < xx; j++) {
 			printf("-");
 
 		} // for xx end
 		xx -= 1;
 		//printf("\n");
 
-		for (int i = 0; i < zz; i++) {
+		for (int k = 0; k < zz; k++) {
 			printf("*");
 		} // for zz end
 		zz += 1;
@@ -202,7 +204,7 @@ void findMyNumber() {
 			guess = (rand() % guess) + 1;
 		}
 		else if (respuesta == 2) {
-			guess = (rand() % ((numero + 1) - guess) + guess);
+			guess = (rand() % ((numero + 1) + guess));
 		}
 		else {
 			printf("Aprende a leer.\n");
@@ -220,4 +222,19 @@ void findMyNumber() {
 
 }
 
+void structsTest() {
+	struct MisEmpleados
+	{
+		char  nombre[10];
+		int edad;
+		char direccion[40];
+	};
 
+	struct MisEmpleados asshole1 = { "Karl",25,"Calle de la puta #3" };
+
+	printf("El nombre del asshole es %s\n", asshole1.nombre);
+	printf("La edad del asshole es %d\n", asshole1.edad);
+	printf("La direccion del asshole es %s\n", asshole1.direccion);
+
+
+} //structsTest() end
