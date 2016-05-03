@@ -13,7 +13,7 @@ void printRamp(); //prints a ramp.
 void typeSize();
 void findPrimes();
 void findMyNumber(); // Tiene algunos problemas, no importa la pista que le des, eventualmente encuentra el numero. 
-void structsTest();
+void structsTest();   //ejemplo de uso de structs. 
 
 
 
@@ -223,16 +223,16 @@ void findMyNumber() {
 }
 
 void structsTest() {
-	struct MisEmpleados
+	struct MisEmpleados  //Define el struct y le da nombre
 	{
-		char  nombre[10];
+		char  nombre[10];   //contenido del struct pueden ser data types mixtos. 
 		int edad;
 		char direccion[40];
 	};
 
-	struct MisEmpleados asshole1 = { "Karl",25,"Calle de la puta #3" };
+	struct MisEmpleados asshole1 = { "Karl",25,"Calle de la puta #3" };  //estoy creando un nuevo "objeto" y llenando los atributos que se declararon en el struct. 
 
-	printf("El nombre del asshole es %s\n", asshole1.nombre);
+	printf("El nombre del asshole es %s\n", asshole1.nombre);  //ejemplo de como accesar a la informacion del "objeto" de acuerdo a la estructura que tenia. 
 	printf("La edad del asshole es %d\n", asshole1.edad);
 	printf("La direccion del asshole es %s\n", asshole1.direccion);
 
